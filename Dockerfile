@@ -1,4 +1,4 @@
-FROM hegand/jdk:openjdk8
+FROM hegand/hadoop:2.7
 
 ENV SPARK_VERSION 1.6.3
 ENV SPARK_FULL_VERSION spark-${SPARK_VERSION}-bin-hadoop2.6

@@ -5,7 +5,6 @@ ENV SPARK_MAJOR_VERSION 1.6
 ENV SPARK_FULL_VERSION spark-${SPARK_VERSION}-bin-without-hadoop
 ENV SPARK_HOME /usr/local/spark
 ENV SPARK_CONF_DIR $SPARK_HOME/conf
-ENV SPARK_DIST_CLASSPATH $(hadoop classpath)
 ENV PATH $PATH:$SPARK_HOME/bin
 
 RUN apk --update --no-cache add bash python

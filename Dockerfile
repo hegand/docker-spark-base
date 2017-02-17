@@ -15,7 +15,6 @@ RUN adduser -D -s /bin/bash -u 1200 spark
 RUN set -x && \
     mkdir -p /usr/local && \
     cd /tmp && \
-    http://apache.claz.org/spark/spark-1.6.3/spark-1.6.3-bin-without-hadoop.tgz
     wget -q http://apache.claz.org/spark/spark-${SPARK_VERSION}/${SPARK_FULL_VERSION}.tgz -O - | tar -xz && \
     mv ${SPARK_FULL_VERSION} /usr/local && \
     ln -s /usr/local/${SPARK_FULL_VERSION} ${SPARK_HOME} && \

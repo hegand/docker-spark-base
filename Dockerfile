@@ -2,9 +2,10 @@ FROM hegand/hadoop-base:2.6
 
 ENV SPARK_VERSION 1.6.3
 ENV SPARK_MAJOR_VERSION 1.6
-ENV SPARK_FULL_VERSION spark-${SPARK_VERSION}-bin-hadoop${HADOOP_MAJOR_VERSION}
+ENV SPARK_FULL_VERSION spark-${SPARK_VERSION}-bin-without-hadoop
 ENV SPARK_HOME /usr/local/spark
 ENV SPARK_CONF_DIR $SPARK_HOME/conf
+ENV SPARK_DIST_CLASSPATH $(hadoop classpath)
 ENV PATH $PATH:$SPARK_HOME/bin
 
 RUN apk --update --no-cache add bash python
@@ -14,6 +15,7 @@ RUN adduser -D -s /bin/bash -u 1200 spark
 RUN set -x && \
     mkdir -p /usr/local && \
     cd /tmp && \
+    http://apache.claz.org/spark/spark-1.6.3/spark-1.6.3-bin-without-hadoop.tgz
     wget -q http://apache.claz.org/spark/spark-${SPARK_VERSION}/${SPARK_FULL_VERSION}.tgz -O - | tar -xz && \
     mv ${SPARK_FULL_VERSION} /usr/local && \
     ln -s /usr/local/${SPARK_FULL_VERSION} ${SPARK_HOME} && \

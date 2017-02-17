@@ -1,4 +1,4 @@
-FROM hegand/hadoop:2.6
+FROM hegand/hadoop-base:2.6
 
 ENV SPARK_VERSION 1.6.3
 ENV SPARK_MAJOR_VERSION 1.6

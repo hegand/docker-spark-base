@@ -8,7 +8,7 @@ ENV SPARK_CONF_DIR $SPARK_HOME/conf
 ENV SPARK_DIST_CLASSPATH  ${SPARK_HOME}/conf:${SPARK_HOME}/share/hadoop/common/lib/*:${SPARK_HOME}/share/hadoop/common/*:${SPARK_HOME}/share/hadoop/hdfs:${SPARK_HOME}/share/hadoop/hdfs/lib/*:${SPARK_HOME}/share/hadoop/hdfs/*:${SPARK_HOME}/share/hadoop/yarn/lib/*:${SPARK_HOME}/share/hadoop/yarn/*:${SPARK_HOME}/share/hadoop/mapreduce/lib/*:${SPARK_HOME}/share/hadoop/mapreduce/*
 ENV PATH $PATH:$SPARK_HOME/bin
 
-RUN apk --update --no-cache add bash python
+RUN apk --update --no-cache add bash python libc6-compat
 
 RUN adduser -D -s /bin/bash -u 1200 spark
 

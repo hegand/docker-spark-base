@@ -6,7 +6,7 @@ ENV SPARK_HOME /usr/local/spark
 ENV SPARK_CONF_DIR $SPARK_HOME/conf
 ENV PATH $PATH:$SPARK_HOME/bin
 
-RUN apk --update --no-cache add bash python
+RUN apk --update --no-cache add bash python libc6-compat
 
 RUN adduser -D -s /bin/bash -u 1200 spark
 

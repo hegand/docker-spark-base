@@ -1,11 +1,11 @@
-FROM hegand/hadoop-base:2.6
+FROM hegand/hadoop-base:full-stack-2.7
 
 ENV SPARK_VERSION 1.6.3
 ENV SPARK_MAJOR_VERSION 1.6
-ENV SPARK_FULL_VERSION spark-${SPARK_VERSION}-bin-without-hadoop
+ENV SPARK_FULL_VERSION spark-${SPARK_VERSION}-bin-hadoop2.6
 ENV SPARK_HOME /usr/local/spark
 ENV SPARK_CONF_DIR $SPARK_HOME/conf
-ENV SPARK_DIST_CLASSPATH   ${HADOOP_HOME}/conf:${HADOOP_HOME}/share/hadoop/common/lib/*:${HADOOP_HOME}/share/hadoop/common/*:${HADOOP_HOME}/share/hadoop/hdfs:${HADOOP_HOME}/share/hadoop/hdfs/lib/*:${HADOOP_HOME}/share/hadoop/hdfs/*:${HADOOP_HOME}/share/hadoop/yarn/lib/*:${HADOOP_HOME}/share/hadoop/yarn/*:${HADOOP_HOME}/share/hadoop/mapreduce/lib/*:${HADOOP_HOME}/share/hadoop/mapreduce/*
+#ENV SPARK_DIST_CLASSPATH   ${HADOOP_HOME}/conf:${HADOOP_HOME}/share/hadoop/common/lib/*:${HADOOP_HOME}/share/hadoop/common/*:${HADOOP_HOME}/share/hadoop/hdfs:${HADOOP_HOME}/share/hadoop/hdfs/lib/*:${HADOOP_HOME}/share/hadoop/hdfs/*:${HADOOP_HOME}/share/hadoop/yarn/lib/*:${HADOOP_HOME}/share/hadoop/yarn/*:${HADOOP_HOME}/share/hadoop/mapreduce/lib/*:${HADOOP_HOME}/share/hadoop/mapreduce/*
 ENV PATH $PATH:$SPARK_HOME/bin
 
 RUN apk --update --no-cache add bash python libc6-compat
